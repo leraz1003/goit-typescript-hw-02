@@ -21,3 +21,9 @@ export type ModalImage = {
   likes: number;
   userName: string;
 };
+
+export interface UnsplashResponse {
+  total: number;
+  total_pages: number;
+  results: Article[];
+}
