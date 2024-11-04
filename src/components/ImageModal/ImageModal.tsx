@@ -1,7 +1,13 @@
 import Modal from "react-modal";
 import s from "./ImageModal.module.css";
+import { ModalImage } from "../../types/types";
 
-const ImageModal = ({ image, isOpen, onClose }) => {
+interface ImageModalProps {
+  image: ModalImage | null;
+  isOpen: boolean;
+  onClose: () => void;
+}
+const ImageModal = ({ image, isOpen, onClose }: ImageModalProps) => {
   Modal.setAppElement("#root");
   if (!image) return;
 

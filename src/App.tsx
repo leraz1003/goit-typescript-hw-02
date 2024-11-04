@@ -8,37 +8,18 @@ import ImageGallery from "./components/ImageGallery/ImageGallery";
 import Loader from "./components/Loader/Loader";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "./components/ImageModal/ImageModal";
+import { Article, ModalImage } from "./types/types";
 
 function App() {
-  type Url = {
-    small: string;
-    regular: string;
-  };
-  type User = {
-    username: string;
-  };
-  interface Article {
-    id: string;
-    likes: number;
-    alt_description: string;
-    url: Url;
-    user: User;
-  }
-  type ImageData = {
-    regularUrl: string;
-    alt_description: string;
-    likes: number;
-    userName: string;
-  };
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [page, setPage] = useState(0);
   const [query, setQuery] = useState("");
-  const [selectedImage, setSelectedImage] = useState<ImageData | null>(null);
+  const [selectedImage, setSelectedImage] = useState<ModalImage | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleImageClick = (image: ImageData) => {
+  const handleImageClick = (image: ModalImage) => {
     setSelectedImage(image);
     setIsModalOpen(true);
   };

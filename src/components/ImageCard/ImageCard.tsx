@@ -1,24 +1,25 @@
 import s from "./ImageCard.module.css";
 
-const ImageCard = ({ items, onImageClick }) => {
+interface ImageCardProps {
+  items: {
+    urls: { small: string; regular: string };
+    likes: number;
+    user: { name: string };
+    alt_description: string;
+  };
+  onImageClick: () => void;
+}
+
+const ImageCard = ({ items, onImageClick }: ImageCardProps) => {
   const {
-    urls: { small: smallUrl, regular: regularUrl },
+    urls: { small: smallUrl },
     likes,
     user: { name: userName },
     alt_description,
   } = items;
 
-  const handleImageClick = () => {
-    onImageClick({
-      regularUrl,
-      alt_description,
-      likes,
-      userName,
-    });
-  };
-
   return (
-    <li className={s.item} onClick={handleImageClick}>
+    <li className={s.item} onClick={onImageClick}>
       <img src={smallUrl} alt={alt_description} />
       <div>
         <p>Author: {userName}</p>
