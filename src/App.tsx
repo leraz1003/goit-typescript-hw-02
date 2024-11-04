@@ -6,7 +6,7 @@ import ImageModal from "./components/ImageModal/ImageModal";
 import Loader from "./components/Loader/Loader";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import SearchBar from "./components/SearchBar/SearchBar";
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchArticles } from "./components/services/api";
 
 function App() {
